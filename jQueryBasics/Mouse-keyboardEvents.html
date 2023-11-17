@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntax-MouseEvents</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <style>
+        #box{
+            padding: 6px;
+            border: 1px solid black;
+            background-color: rgb(177, 125, 155);
+        }
+        .white{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mouse, Keyboard Events</h1>
+    <div class="test1" id="box">
+        <h2>Box 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, commodi. Reprehenderit excepturi nesciunt accusamus vitae, perferendis sunt nostrum deserunt odio minus dicta pariatur, quisquam et autem natus molestias quo rerum.</p>
+    </div>
+    <ul id="list">
+        <li>Orange</li>
+        <li class="test">Red</li>
+        <li>Blue</li>
+        <li class="test">Green</li>
+    </ul>
+
+    <button id="clickButton">Set Value</button>
+    <script src="jQuery.js"></script>
+    <!-- <script>
+        $(document).ready(function(){
+            $('#list').css("color", "brown");
+            $("ul li:eq(0)").css("border", "1px solid red")
+        });
+    </script> -->
+
+    <script>
+        $(document).ready(function(){
+            //Mouse Events
+           //changing background color on mouse click
+           $('#box').click(function(){
+            $('#box').css("backgroundColor","yellow");
+           })
+   
+           //changing bgColor on double click
+           $('#box').dblclick(function(){
+            $('#box').css("backgroundColor","orange");
+           })
+
+           //right click
+           $('#box').contextmenu(function(){
+            $('#box').css("backgroundColor","red");
+           })
+
+           //mouse Enter
+           $('#box').mouseenter(function(){
+            $('#box').css("backgroundColor","indigo");
+           })
+
+           //mouse leave
+           $('#box').mouseleave(function(){
+            $('#box').css("backgroundColor","rgb(177, 125, 155)");
+           })
+
+           //Keyboard events
+           $('body').keypress(function(){
+            $(this).css("backgroundColor","pink");
+           });
+
+           $('body').keyup(function(){
+            $(this).css("backgroundColor","blue");
+           });
+
+           //keypress and keydown works in the same way
+           $('body').keydown(function(){
+            $(this).css("backgroundColor","red");
+           });
+
+           //set methods
+           $('#clickButton').click(function(){
+            $('#box h2').text('Sample Box');
+            $('#box p').html('New <b>sample </b> text');
+            $('#box h2').attr('class','white');
+           })
+
+        });
+    </script>
+
+
+</body>
+</html>
