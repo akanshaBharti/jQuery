@@ -23,6 +23,13 @@
         margin-bottom: 14px;
         margin-top: 20px ;
       }
+      #box3{
+        padding: 6px;
+        border: 1px solid black;
+        margin-bottom: 14px;
+        margin-top: 20px ;
+        background-color: rgb(194, 161, 161);
+      }
     </style>
   </head>
   <body>
@@ -51,8 +58,9 @@
     <button id="appendToBtn">appendTo </button>
     <button id="prependToBtn">prependTo </button>
     <button id="cloneBtn">Clone</button>
-    <button id="cloneBtn">Clone</button>
-    <button id="cloneBtn">Clone</button>
+    <button id="replaceBtn">replace</button>
+    <button id="wrapBtn">wrap</button>
+    <button id="unwrapBtn">unwrap</button>
 
     <div class="Test" id="box2">
       <p>
@@ -60,6 +68,20 @@
         commodi. Reprehenderit excepturi nesciunt accusamus vitae, perferendis
         sunt nostrum deserunt odio minus dicta pariatur, quisquam et autem natus
         molestias quo rerum.
+      </p>
+    </div>
+    <div class="Test2" id="box3">
+      <p>
+        Lorem ipsum dolor sit amet<span>Lorem ipsum dolor sit amet.</span> consectetur adipisicing elit. Explicabo,
+        commodi. Reprehenderit excepturi nesciunt accusamus vitae, perferendis
+        sunt nostrum deserunt odio minus dicta pariatur, quisquam et autem natus
+        molestias quo rerum.<br>
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
+        commodi. Reprehenderit excepturi nesciunt accusamus vitae, perferendis
+        sunt nostrum deserunt odio minus dicta pariatur, quisquam et autem natus
+        molestias quo rerum.<br>
       </p>
     </div>
 
@@ -159,6 +181,18 @@
         })
 
         //replaceWith and replaceAll
+        $('#replaceBtn').click(function(){
+         // $('#box3 p:first').replaceWith("<h3>Hello replaceWith</h3>") //both tag and text works
+         $("<h3>Hello replaceAll</h3>").replaceAll("#box3 p")  //only tag works
+        })
+        
+        //wrap and unwrap
+        $('#wrapBtn').click(function(){
+          $('#box2 p').wrap('<div class="test2"></div>')
+        })
+        $('#unwrapBtn').click(function(){
+          $('#box2 p').unwrap()
+        })
 
       });
     </script>
