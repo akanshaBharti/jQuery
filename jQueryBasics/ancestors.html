@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancestors</title>
+    <style>
+        #main-outer{
+            background-color: rgb(231, 192, 219);
+            border: 1px solid rgb(165, 42, 155);
+            padding: 10px;
+            padding-bottom: 50px;
+        }
+        #outer{
+            background-color: rgb(224, 198, 148);
+            border: 1px solid brown;
+            padding: 10px;
+            padding-bottom: 50px;
+
+        }
+        #inner{
+            background-color: rgb(216, 155, 198);
+            border: 1px solid rgb(219, 88, 202);
+            padding: 10px;
+            padding-bottom: 50px;
+
+        }
+      
+
+        #inner div{
+            border: 1px solid rgb(97, 171, 196);
+            background-color: lightblue;
+            padding: 10px;
+            width: 20%;
+            height: 70px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ancestor Methods</h1>
+    <div id="main-outer">
+        <h2 >Main Outer</h2>
+        <div id="outer">
+            <h2>Outer</h2>
+            <div id="inner">
+                <h2 id="child-head">Inner</h2>
+                <div>A</div>
+                <div>B</div>
+                <div id="child-C">C</div>
+                <div>D</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="jQuery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#child-C").parent().css("background", "red");
+        })
+    </script>
+</body>
+</html>
