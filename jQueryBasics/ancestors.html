@@ -35,29 +35,82 @@
             height: 70px;
             display: inline-block;
         }
+        #first{
+            border: 1px solid brown;
+            background-color: orange;
+            padding: 6px;
+        }
+        #second{
+            border: 1px solid purple;
+            background-color: pink;
+            padding: 6px;
+        }
     </style>
 </head>
 <body>
-    <h1>Ancestor Methods</h1>
+    <h3>Ancestor Methods</h3>
+    <h3>Descendent Methods</h3>
+    <h3>Sibling Methods</h3>
     <div id="main-outer">
         <h2 >Main Outer</h2>
         <div id="outer">
             <h2>Outer</h2>
             <div id="inner">
                 <h2 id="child-head">Inner</h2>
-                <div>A</div>
+                <div class="test">A</div>
                 <div>B</div>
                 <div id="child-C">C</div>
-                <div>D</div>
+                <!-- <div>C</div> -->
+                <div >D</div>
             </div>
         </div>
+    </div>
+    
+    <br><br>
+    <h3>Filtering methods</h3>
+    <div id="first">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, labore nobis beatae assumenda voluptatum dolores?</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <ul>
+        <li>Orange</li>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Strawberry</li>
+    </ul>
+    <div id="second">
+        <p class="test">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, quis.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
     </div>
     
 
     <script src="jQuery.js"></script>
     <script>
         $(document).ready(function(){
-            $("#child-C").parent().css("background", "red");
+
+            //ancestor methods
+           // $("#child-C").parent().css("background", "red");
+
+           //descendant methods
+            //$('#inner').children('#child-C').css('border', '1px solid black')
+            //$('#inner').find('#child-C').css('backgroundColor', 'brown')
+
+            //sibling methods
+           // $('#child-C').siblings().css("background", "brown")
+           // $('#child-C').next().css("background", "yellow")
+            $('#child-C').prevAll().css("background", "green")
+            $('#child-C').nextUntil('.test').css("background", "black")
+
+            //filtering Methods
+            $('#second p').first().css('backgroundColor','yellow')
+            $('#first p').last().css('backgroundColor','red')
+            $('ul li').eq(2).css('backgroundColor','green')
+           // $('p').eq(0).css('backgroundColor','green')
+            //$('p').filter('.test').css('backgroundColor','brown')
+            //$('p').not('.test').css('backgroundColor','brown')
+            $('ul li').slice(2).css('backgroundColor','gold')
+            
+
         })
     </script>
 </body>
