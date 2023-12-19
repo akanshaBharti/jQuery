@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paragraph Styler</title>
+  <style>
+    p {
+      font-family: sans-serif;
+      font-size: 16px;
+      color: black;
+    }
+
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <p>This is a sample paragraph.</p>
+
+  <div>
+    <button onclick="changeColor('red')">Red</button>
+    <button onclick="changeColor('green')">Green</button>
+    <button onclick="changeColor('blue')">Blue</button>
+  </div>
+  <div>
+    <button onclick="changeFontSize('10px')">10px</button>
+    <button onclick="changeFontSize('20px')">20px</button>
+    <button onclick="changeFontSize('30px')">30px</button>
+  </div>
+  <div>
+    <button onclick="changeFontFamily('Arial')">Arial</button>
+    <button onclick="changeFontFamily('Times New Roman')">Times New Roman</button>
+    <button onclick="changeFontFamily('Courier New')">Courier New</button>
+  </div>
+
+  <script>
+    function changeColor(color) {
+      var paragraph = document.querySelector("p");
+      paragraph.style.color = color;
+    }
+
+    function changeFontSize(fontSize) {
+      var paragraph = document.querySelector("p");
+      paragraph.style.fontSize = fontSize;
+    }
+
+    function changeFontFamily(fontFamily) {
+      var paragraph = document.querySelector("p");
+      paragraph.style.fontFamily = fontFamily;
+    }
+  </script>
+</body>
+</html>

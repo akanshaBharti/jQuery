@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Events Demo</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+      transition: background-color 0.5s;
+    }
+
+    a {
+      color: blue;
+      transition: color 0.5s;
+    }
+  </style>
+</head>
+<body>
+
+<a id="mouseEventLink" href="https://www.hansrajcollege.ac.in/" target="_blank">It shows the mouse events</a>
+
+<script>
+  $(document).ready(function () {
+    $("#mouseEventLink").mouseover(function () {
+      $("body").css("background-color", "green");
+      
+      $(this).text("I'm green now").css("color", "white");
+    });
+
+    $("#mouseEventLink").mouseout(function () {
+      $("body").css("background-color", "red");
+      
+      $(this).text("I'm red now").css("color", "blue");
+    });
+  });
+</script>
+
+</body>
+</html>

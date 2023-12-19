@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Tables</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    .row1 {
+      color: red;
+    }
+
+    .row2 {
+      color: rgb(151, 133, 99);
+    }
+
+    .row3 {
+      color: rgb(0, 255, 110);
+    }
+
+    .row4 {
+      color: green;
+    }
+
+    .row5 {
+      color: blue;
+    }
+
+    .row6 {
+      color: indigo;
+    }
+
+    .row7 {
+      color: violet;
+    }
+
+    .row8 {
+      color: pink;
+    }
+
+    .row9 {
+      color: brown;
+    }
+
+    .row10 {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multiplication Table</h1>
+  <table id="multiplicationTable"></table>
+
+  <script>
+    var table = document.getElementById("multiplicationTable");
+
+    var fontSizes = ["12px", "14px", "16px", "18px", "20px", "22px", "24px", "26px", "28px", "30px"];
+
+    var rowNumber = 2; 
+
+    function printRow() {
+      if (rowNumber <= 10) {
+        var currentRowNumber = rowNumber;
+
+        var row = document.createElement("tr");
+
+        row.classList.add("row" + currentRowNumber);
+
+        row.style.fontSize = fontSizes[currentRowNumber - 2];
+
+        for (var i = 1; i <= 10; i++) {
+          var cell = document.createElement("td");
+          cell.innerHTML = currentRowNumber + " x " + i + " = " + (currentRowNumber * i);
+          row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+
+        rowNumber++;
+      } else {
+        clearInterval(intervalId); 
+      }
+    }
+
+    var intervalId = setInterval(printRow, 2000);
+  </script>
+</body>
+</html>
+
