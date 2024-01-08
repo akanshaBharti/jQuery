@@ -195,7 +195,7 @@ let admin1 =  new Admin('admin', 'admin@gmail.com')
 
 
 setTimeout(() => {
-    console.log('hello')
+    // console.log('hello')
 }, 3000);
 
 // synchronous means the code runs in a particular sequence of instructions given in the programs. 
@@ -222,18 +222,18 @@ calculator(1,2,sumAdd);
 // a pyramid structuredClone.apply(pyramid of doom)
 // this style of programming becomes difficult to understand & manage.
 
-function getData(dataId, getNextData){
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            // console.log('data', dataId);
-            // resolve('success');
-            reject("error");
-            if(getNextData){
-                getNextData();
-            }
-        }, 2000);
-    })
-}
+// function getData(dataId, getNextData){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log('data', dataId);
+//             resolve('success');
+//             // reject("error");
+//             if(getNextData){
+//                 getNextData();
+//             }
+//         }, 2000);
+//     })
+// }
 
 
 //callback hell
@@ -251,7 +251,88 @@ function getData(dataId, getNextData){
 // resolve & reject are callbacks provided by JS.
 // 3 states in Promise => pending(result undefined), fulfilled/resolved(result is value), rejected(result is error  )
 
- let promise = new Promise((resolve, reject) => {
-    console.log('Promise');
-    // resolve(123);
- })
+// const getPromise = () => {
+//     return new Promise((resolve, reject) => {
+//     console.log('I am a Promise');
+//     // resolve('success');
+//     reject('Error!');
+//  });
+// };
+
+// let promise = getPromise();
+// promise.then((res) => {
+//     console.log('Promise fulfilled', res);
+// });
+
+// promise.catch((err) => {
+//     console.log('rejected', err);
+// })
+
+function asyncFunc1(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("data1");
+            resolve('success1')
+        }, 4000);
+    })
+};
+
+function asyncFunc2(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("data2");
+            resolve('success2')
+        }, 4000);
+    })
+}
+
+console.log('fetching data1');
+// let p1 = asyncFunc1();
+// p1.then((res) => {
+//     console.log(res);
+//     console.log('fetching data2');
+//     let p2 = asyncFunc2();
+//     p2.then((res) => {
+//     console.log(res);
+// });
+// });
+
+// asyncFunc1().then((res) => {
+//     console.log(res);
+//     console.log('fetching data2');
+//     asyncFunc2().then((res) => {
+//         console.log(res);
+//     })
+// })
+
+// async-await: async function always returns a promise.
+// await pauses the execution of its surrounding async function unitl the promise is settled.
+
+async function bye(){
+    console.log('bye')
+}
+
+function api(weatherID) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('weather data', weatherID);
+            resolve(200);
+        }, 2000);
+    });
+}
+
+async function getWeatherData(){
+    await api(1);
+    await api(2);
+}
+
+// IIFE: immediatley invoked function expression 
+// IIFE is a function that is called immediately as soon as it is defined.
+
+// IIFE
+(async function(){
+    console.log('getting data 1')
+    await api(1);
+    console.log('getting data 2')
+    await api(2);
+})();
