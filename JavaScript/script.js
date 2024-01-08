@@ -187,3 +187,71 @@ let admin1 =  new Admin('admin', 'admin@gmail.com')
 // } catch(err){
 //     //handling error
 // }
+
+
+
+//callbacks, promises, async await
+// async await >> promise chains >> callback hell
+
+
+setTimeout(() => {
+    console.log('hello')
+}, 3000);
+
+// synchronous means the code runs in a particular sequence of instructions given in the programs. 
+// Each instruction waits for the previous instruction to complete its execution.
+
+// Due to sunchronous programming, sometimes imp instructions get blocked due to some previous instructions, 
+// which causes a delay in UI.
+// Asynchronous code execution allows to execute next instructions
+// immediately and doesnt block the flow.
+
+// A callback is a function passed as an argument to another function.
+
+function sumAdd(a,b){
+    console.log(a+b);
+}
+
+function calculator(a,b, sumCallback){
+    sumCallback(a,b);
+}
+
+calculator(1,2,sumAdd);
+
+//callback hell: nested callbacks stacked below one another forming
+// a pyramid structuredClone.apply(pyramid of doom)
+// this style of programming becomes difficult to understand & manage.
+
+function getData(dataId, getNextData){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // console.log('data', dataId);
+            // resolve('success');
+            reject("error");
+            if(getNextData){
+                getNextData();
+            }
+        }, 2000);
+    })
+}
+
+
+//callback hell
+// console.log('getting data1...')
+// getData(1,() => {
+//     console.log('getting data2...')
+//     getData(2, () => {
+//         console.log('getting data3...')
+//         getData(3);
+//     } );
+// });
+
+//promises is for eventual completion of task. It is an object in JS.
+// It is a solution to callback hell.
+// resolve & reject are callbacks provided by JS.
+// 3 states in Promise => pending(result undefined), fulfilled/resolved(result is value), rejected(result is error  )
+
+ let promise = new Promise((resolve, reject) => {
+    console.log('Promise');
+    // resolve(123);
+ })
