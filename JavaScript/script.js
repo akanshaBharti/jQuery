@@ -13,7 +13,7 @@ const countVow = (str) => {
 // let countVowles =  countVow('akansha')
 // console.log(countVowles)
 
-//for each loop and caalback function
+//for each loop and callback function
 let arr = [1,2,3,4,5];
  
 arr.forEach(function printVal(val){
@@ -319,7 +319,7 @@ function api(weatherID) {
             resolve(200);
         }, 2000);
     });
-}
+} 
 
 async function getWeatherData(){
     await api(1);
