@@ -336,3 +336,26 @@ async function getWeatherData(){
     console.log('getting data 2')
     await api(2);
 })();
+
+
+
+// API's
+// Fetch API: It provides an interface for fetching(sending/receiving)resources.
+// It uses request and response objects.
+// the fetch() method is used to fetch a PerformanceResourceTiming(data).
+// let promise =  fetch(url, [options])
+
+const URL ="https://cat-fact.herokuapp.com";
+
+
+const getFacts = async () => {
+    console.log('getting data...')
+    let response = await fetch(URL);
+    console.log(response);
+}
+
+// terms: 
+// AJAX = asynchronous JS and XML,
+// JSON = JavaScript Object Notation
+// json() method = returns a second promise that resolves with the result
+// with the result of parsing the response body text as JSON. (Input is JSON, output is JS object)
