@@ -345,7 +345,7 @@ async function getWeatherData(){
 // the fetch() method is used to fetch a PerformanceResourceTiming(data).
 // let promise =  fetch(url, [options])
 
-const URL ="https://cat-fact.herokuapp.com";
+// const URL ="https://cat-fact.herokuapp.com";
 
 
 const getFacts = async () => {
