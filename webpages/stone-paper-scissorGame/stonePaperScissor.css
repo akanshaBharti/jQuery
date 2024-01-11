@@ -1,68 +1,102 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     text-align: center;
-}
-
-h1{
+  }
+  
+  h1 {
     background-color: rgb(102, 69, 42);
     color: white;
-    height: 5rem;   
+    height: 5rem;
     line-height: 5rem;
-}
-
-.choice{
+  }
+  
+  .choice {
     height: 165px;
     width: 165px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.choice:hover{
+  }
+  
+  .choice:hover {
     cursor: pointer;
     background-color: rgb(102, 69, 42);
-}
-
-img{
+  }
+  
+  img {
     height: 150px;
     width: 150px;
     object-fit: cover;
     border-radius: 50%;
-}
-
-.choices{
+  }
+  
+  .choices {
     display: flex;
-    /* to align vertically and horizontally justify content and align items */
     justify-content: center;
     align-items: center;
     gap: 3rem;
     margin-top: 5rem;
-}
-
-.score-board{
+  }
+  
+  .score-board {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    gap: 5rem ;
+    gap: 5rem;
     margin-top: 3rem;
-}
-
-#user-score, #comp-score{
+  }
+  
+  #user-score,
+  #comp-score {
     font-size: 3rem;
-}
-
-.msg-container{
+  }
+  
+  .msg-container {
     margin-top: 4rem;
-}
-
-#msg{
+  }
+  
+  #msg {
     background-color: rgb(102, 69, 42);
     color: white;
     font-size: 2rem;
-    display: inline;    
+    display: inline;
     padding: 1rem;
     border-radius: 1rem;
-}
+  }
+  
+  @media screen and (max-width: 768px) {
+    .choice {
+      height: 120px;
+      width: 120px;
+    }
+  
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  
+    .choices {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .score-board {
+      font-size: 1.2rem;
+    
+    }
+  
+    #user-score,
+    #comp-score {
+      font-size: 1.5rem;
+      
+    }
+  
+    #msg {
+      font-size: 1.2rem;
+      
+    }
+  }
+  
