@@ -345,17 +345,41 @@ async function getWeatherData(){
 // the fetch() method is used to fetch a PerformanceResourceTiming(data).
 // let promise =  fetch(url, [options])
 
-// const URL ="https://cat-fact.herokuapp.com";
-
+const URL ="https://cat-fact.herokuapp.com/facts";
+const factPara =  document.querySelector('.fact');
+const btn = document.querySelector(".btn");
 
 const getFacts = async () => {
     console.log('getting data...')
     let response = await fetch(URL);
-    console.log(response);
+    console.log(response);  //JSON format
+    let data = await response.json();
+    // console.log(data);
+    factPara.innerText = data[0].text;
 }
+ 
+//promise chaining
+// function getFacts() {
+//      fetch(URL)
+//      .then((response) => {
+//         return response.json();
+//      })
+//      .then((data) => {
+//         console.log(data);
+//         factPara.innerText = data[0].text;
+//      })
+// }
+
+btn.addEventListener("click", getFacts);
 
 // terms: 
 // AJAX = asynchronous JS and XML,
 // JSON = JavaScript Object Notation
 // json() method = returns a second promise that resolves with the result
 // with the result of parsing the response body text as JSON. (Input is JSON, output is JS object)
+
+//  API response(JSON) -> JS object
+
+// requests and repsonse
+// http verbs , response status code
+// *http response headers also contain details about the responses, such as content type, HTTP status code etc.
